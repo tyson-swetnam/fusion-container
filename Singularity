@@ -11,7 +11,7 @@ PROFILEDIR="/PROFILES/${USER}@${HOSTNAME}"
 
 echo "Setting up wine prefix..."
 export WINEPREFIX="$TEMPDIR/wineprefix"
-export WINEARCH="win32"
+export WINEARCH="win64"
 
 if [ -f "$APPDIR/wineprefix.tgz" ]; then
     echo "Found existing wineprefix - restoring it..."
@@ -25,13 +25,12 @@ else
   winetricks dlls directx9
 fi
 
-echo "Containerizing gaming directory..."
+echo "Containerizing FUSION directory..."
 if [ -L "$WINEPREFIX/drive_c/Apps" ]; then
     echo "Links exist already"
 else
     ln -sf "$APPDIR" "$WINEPREFIX/drive_c/Apps"
-    ln -sf "$APPDIR" "$WINEPREFIX/drive_c/GOG Games"
-    ln -sf "$APPDIR" "$WINEPREFIX/drive_c/Games"
+    ln -sf "$APPDIR" "$WINEPREFIX/drive_c/FUSION"
 fi
 
 echo "Containerizing user profile..."

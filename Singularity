@@ -1,5 +1,5 @@
 BootStrap: docker
-From: ubuntu:latest
+From: ubuntu:xenial
 
 %runscript
 TEMPDIR="$(mktemp -d)"
@@ -43,11 +43,9 @@ else
 fi
 ln -s "$PROFILEDIR" "$WINEPREFIX/drive_c/users/$USER"
 
-echo "Please install your GOG windows game now or play it"
-echo "To install Broken Sword 2.5 (download size ~700MB):"
-echo " wget http://server.c-otto.de/baphometsfluch/bs25setup.zip"
-echo " unzip bs25setup.zip"
-echo " wine ./bs25-setup.exe"
+echo " Install FUSION from its URL:"
+echo " wget http://forsys.cfr.washington.edu/fusion/FUSION_Install.exe $WINEPREFIX/drive_c/users/$USER/FUSION_Install.exe"
+
 env WINEPREFIX="$WINEPREFIX" WINEARCH="$WINEARCH" /bin/bash
 
 wineboot --end-session
@@ -69,6 +67,5 @@ README.md /README.md
     apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/
     apt-get update
     apt-get install -y winehq-stable winetricks # this installs Wine2
-    wget http://forsys.cfr.washington.edu/fusion/FUSION_Install.exe
     mkdir /APPS /PROFILES
     chmod 0777 /APPS /PROFILES

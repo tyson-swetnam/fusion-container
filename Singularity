@@ -69,5 +69,6 @@ README.md /README.md
     apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/
     apt-get update
     apt-get install -y winehq-stable winetricks # this installs Wine2
+    wget http://forsys.cfr.washington.edu/fusion/FUSION_Install.exe
     mkdir /APPS /PROFILES
     chmod 0777 /APPS /PROFILES
